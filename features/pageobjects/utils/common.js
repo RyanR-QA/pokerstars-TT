@@ -4,7 +4,7 @@
  */
 export default class Common {
   async getPassword(username) {
-    switch (key) {
+    switch (username) {
       case process.env.USERNAME1:
         return process.env.PASSWORD1;
         break;
@@ -21,5 +21,11 @@ export default class Common {
         return new Error("ERROR - User not selected!");
         break;
     }
+  }
+
+  async isModalDisplayed(header) {
+    await $(
+      `.ReactModal__Content > header:contains('${header}')`
+    ).waitForExist();
   }
 }
