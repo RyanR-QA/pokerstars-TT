@@ -1,6 +1,5 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
-import LoginPage from "../pageobjects/login.page.js";
-import SecurePage from "../pageobjects/secure.page.js";
+import HomePage from "../pageobjects/home.page.js";
 
 const pages = {
   home: HomePage,
@@ -10,17 +9,17 @@ Given(/^the (\w+) page is displayed$/, async (page) => {
   await pages[page].open();
 });
 
-And(/^the user clicks on "(\w+)"$/, async (button) => {
+When(/^the user clicks on "(\w+)"$/, async (button) => {
   await HomePage.buttons[button].waitForExist();
   await HomePage.buttons[button].click();
 });
 
-And(/^the user clicks on "(\w+)" inside the dialog box$/, async (button) => {
+When(/^the user clicks on "(\w+)" inside the dialog box$/, async (button) => {
   await HomePage.buttons[button].waitForExist();
   await HomePage.buttons[button].click();
 });
 
-And(/^the "(\w+)" dialog box is displayed$/, async (header) => {
+When(/^the "(\w+)" dialog box is displayed$/, async (header) => {
   await modalPage.isModalDisplayed(header);
 });
 
