@@ -21,6 +21,46 @@ class HomePage extends common {
     return $("._7764ed8");
   }
 
+  get secondBoostedOddsResult() {
+    return $(
+      ":nth-child(2) > div > ._5f15220._c2e4e6d > span > span > span > strong"
+    );
+  }
+
+  get secondOddsResult() {
+    return $(
+      "._eb15e31 > div > :nth-child(3) > div > div > ol > li > div > div > ._0065a6c > :nth-child(2) > span > span > span > strong"
+    );
+  }
+
+  get secondOddsText() {
+    return $(":nth-child(1) > div > ._628c1ca > span:nth-child(1)");
+  }
+
+  get secondBoostedOddsText() {
+    return $(":nth-child(2) > div > ._5349d4d");
+  }
+
+  get secondBetSlipBetText() {
+    return $("._c1eb137");
+  }
+
+  get boostedOddsIcon() {
+    return $("_cb0127a");
+  }
+
+  get clearBetsBtn() {
+    return $("[aria-label='Clear Bets']");
+  }
+
+  get betSlipEmpty() {
+    return $("._87254ca");
+  }
+
+  get secondHorseRace() {
+    return $("._9bd8994 > div > nav > div > ul > :nth-child(2) > ._1e9948a");
+  }
+
   /**
    * Selectors for home page buttons are set up in this way so that if IDs are introduced, there is minimal effort needed to
    * change the selectors we already have. It's best to always have a centralized point where maintainence can be made, instead
@@ -60,6 +100,11 @@ class HomePage extends common {
       await common.getPassword(Users.exampleuser1)
     );
     await this.btnSubmit.click();
+  }
+
+  async CookieAccept() {
+    await this.cookieAccept.waitForExist();
+    await this.cookieAccept.click();
   }
 
   open() {

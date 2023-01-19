@@ -52,12 +52,12 @@ _Write 10 or more Gherkin scenarios to cover behaviour on the home page._
    <br/>
 4. **Scenario**: Verify the betslip is populated correctly when the user clicks on a boosted odds bet<br/>
    **Given** the home page is displayed<br/>
-   **When** the user clicks on the first bet in the 'Odds Boost' section<br/>
-   **Then** the bet slip widget should be appropriately populated<br/>
+   **When** the user chooses a boosted bet<br/>
+   **Then** the bet slip widget should be appropriately populated including the boosted odds<br/>
    <br/>
-5. **Scenario**: Verify the betslip is populated correctly when the user clicks on a standard odds bet<br/>
+5. **Scenario**: Verify the betslip is populated correctly when the user clicks on a non-boosted odds bet<br/>
    **Given** the home page is displayed<br/>
-   **When** the user clicks on the first bet in the 'Upcoming - Football' section<br/>
+   **When** the user chooses a non-boosted bet<br/>
    **Then** the bet slip widget should be appropriately populated<br/>
    <br/>
 6. **Scenario**: Verify 'Odds Boost' stakes are correct inside the betslip<br/>
