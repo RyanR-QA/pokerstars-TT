@@ -23,14 +23,15 @@ _Write 10 or more Gherkin scenarios to cover behaviour on the home page._
    **And** the user clicks on "Login"<br/>
    **And** the login dialog box is displayed<br/>
    **When** the user types in an invalid username and password<br/>
-   **And** the user clicks on 'Login' inside the dialog box<br/>
-   **Then** errors should be displayed<br/>
+   **And** the user clicks on the 'Submit' button inside the dialog box<br/>
+   **Then** invalid login errors should be displayed<br/>
    <br/>
 3. **Scenario**: Verify the "Popular" sidebar buttons work as intended<br/>
    **Given** the home page is displayed<br/>
    **When** the user clicks on <popular_button><br/>
    **Then** the user should be redirected to the <popular_button> page<br/>
    **And** the page header should include <popular_button><br/>
+   **And** the user should be able to see a list of available betting options<br/>
    **Examples**:<br/>
    | popular_button | <br/>
    | Australian Open 2023 |<br/>

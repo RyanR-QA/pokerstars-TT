@@ -15,6 +15,7 @@
     "wdio": "wdio run ./wdio.conf.js"
   },
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "webdriverio": "^8.1.3"
   }
 }
