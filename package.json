@@ -17,7 +17,7 @@
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
     "run-tests": "npx wdio run ./wdio.conf.js",
-    "serve-reports": "allure serve"
+    "show-report": "allure serve"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

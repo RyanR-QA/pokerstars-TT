@@ -6,6 +6,7 @@ import { Before } from "@wdio/cucumber-framework";
 
 const common = new Common();
 let cookieAccepted = false;
+
 /**
  * Set important pre-run intiialization settings here
  */
@@ -15,6 +16,9 @@ const pages = {
   home: HomePage,
 };
 
+/**
+ * Clicks to the 'accept cookies' button at the start of the test run
+ */
 Before(async () => {
   if (cookieAccepted == false) {
     pages.home.CookieAccept();
@@ -27,9 +31,14 @@ Given(/^the ([^"]+) page is displayed$/, async (page) => {
   await pages[page].open();
 });
 
+/**
+ * Adds two different bets to the betslip
+ */
 Given(/^the betslip is populated with at least one bet$/, async () => {
   await pages.home.secondBoostedOddsResult.waitForExist();
   await pages.home.secondBoostedOddsResult.click();
+  await pages.home.secondHorseRace.waitForExist();
+  await pages.home.secondHorseRace.click();
   await pages.home.secondOddsResult.waitForExist();
   await pages.home.secondOddsResult.click();
 });
@@ -46,6 +55,9 @@ When(/^the user chooses a boosted bet$/, async () => {
   await pages.home.secondBoostedOddsResult.click();
 });
 
+/**
+ * Chooses a horse racing bet
+ */
 When(/^the user chooses a non-boosted bet$/, async () => {
   await pages.home.secondHorseRace.waitForExist();
   await pages.home.secondHorseRace.click();
@@ -109,13 +121,13 @@ Then(/^the bet slip widget should be appropriately populated$/, async () => {
   let oddsText = await pages.home.secondOddsText.getText();
   console.log("1:" + oddsText);
   // Since we are using the horse racing odds for this example,
-  // we will need to use regex to navigate the bet offer text as it contains text that doesn't show on the betslip
+  // we will need to use regex to navigate the bet offer text as it 'sometimes' contains text that doesn't show on the betslip
   let match = oddsText.match(/[a-zA-Z](.*)/);
   let extractedText = match[0];
   console.log("2:" + extractedText);
 
-  await pages.home.secondBetSlipBetText.waitForExist();
-  let betSlipBetText = await pages.home.secondBetSlipBetText.getText();
+  await pages.home.betSlipTitle.waitForExist();
+  let betSlipBetText = await pages.home.betSlipTitle.getText();
   await expect(betSlipBetText).toEqual(extractedText);
 });
 
@@ -123,8 +135,8 @@ Then(
   /^the bet slip widget should be appropriately populated including the boosted odds$/,
   async () => {
     let boostedOddsText = await pages.home.secondBoostedOddsText.getText();
-    await pages.home.secondBetSlipBetText.waitForExist();
-    let betSlipBetText = await pages.home.footballBetSlipText.getText();
+    await pages.home.betSlipTitle.waitForExist();
+    let betSlipBetText = await pages.home.betSlipTitle.getText();
     await expect(betSlipBetText).toEqual(boostedOddsText);
   }
 );

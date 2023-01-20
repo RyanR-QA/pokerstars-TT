@@ -64,7 +64,7 @@ export const config = {
       browserName: "chrome",
       acceptInsecureCerts: true,
       "goog:chromeOptions": {
-        args: ["--window-size=1920x1080"],
+        args: ["--headless", "--window-size=1920x1080"],
       },
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
@@ -128,6 +128,16 @@ export const config = {
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
   framework: "cucumber",
+  services: [
+    [
+      "chromedriver",
+      {
+        logFileName: "wdio-chromedriver.log", // default
+        outputDir: "driver-logs", // overwrites the config.outputDir
+        args: ["--silent"],
+      },
+    ],
+  ],
   //
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,

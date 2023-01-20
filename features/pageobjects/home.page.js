@@ -29,28 +29,20 @@ class HomePage extends common {
 
   get secondOddsResult() {
     return $(
-      "._eb15e31 > div > :nth-child(3) > div > div > ol > li > div > div > ._0065a6c > :nth-child(2) > span > span > span > strong"
+      ":nth-child(2) > ._3c5e501 > :nth-child(3) > span > span > span > strong"
     );
   }
 
   get secondOddsText() {
-    return $(":nth-child(1) > div > ._628c1ca > span:nth-child(1)");
+    return $(":nth-child(2) > div > ._628c1ca > span");
   }
 
   get secondBoostedOddsText() {
     return $(":nth-child(2) > div > ._5349d4d");
   }
 
-  get secondBetSlipBetText() {
-    return $("._8f75177");
-  }
-
-  get footballBetSlipText() {
-    return $("._8f75177");
-  }
-
-  get boostedOddsIcon() {
-    return $("_cb0127a");
+  get betSlipTitle() {
+    return $("._c1eb137");
   }
 
   get clearBetsBtn() {
@@ -95,17 +87,9 @@ class HomePage extends common {
     "rugby league": $("a=Rugby League"),
   };
 
-  async login() {
-    await this.buttons["login"].waitForExist();
-    await this.buttons["login"].click();
-    await this.loginBox.waitForExist();
-    await this.usernameField.sendKeys(Users.exampleuser1);
-    await this.passwordField.sendKeys(
-      await common.getPassword(Users.exampleuser1)
-    );
-    await this.btnSubmit.click();
-  }
-
+  /**
+   * Clicks to the 'accept cookies' button at the start of the test run
+   */
   async CookieAccept() {
     await this.cookieAccept.waitForExist();
     await this.cookieAccept.click();

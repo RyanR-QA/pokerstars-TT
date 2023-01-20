@@ -9,15 +9,28 @@
       "request": "launch",
       "name": "Run Tests",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "run-tests", "&&", "allure serve"],
+      "runtimeArgs": ["run-script", "run-tests"],
       //   "sourceMaps": true,
       //   "smartStep": true,
       //   "preLaunchTask": "build",
       "trace": true,
       "internalConsoleOptions": "openOnSessionStart",
       "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**/*.js"],
-      "envFile": "${workspaceFolder}/.env"
+      "skipFiles": ["<node_internals>/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Show Results",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "show-report"],
+      //   "sourceMaps": true,
+      //   "smartStep": true,
+      //   "preLaunchTask": "build",
+      "trace": true,
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**/*.js"]
     }
   ]
 }
