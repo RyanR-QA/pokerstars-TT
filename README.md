@@ -100,7 +100,7 @@ _Create a simple javascript framework using WebdriverIO and Cucumber to automate
 6. There are two ways you can run the test:<br/>
    a. If using Visual Studio Code; go to 'Run and Debug', choose 'Run Tests' from the dropdown then click the play button<br/>
    b. If you are not using Visual Studio Code; run the following command in your terminal: npx wdio run ./wdio.conf.js<br/>
-7. The test will run until all 5 specs have been completed. The specs will be reported in the terminal, however there is also a nicer-looking Allure report. There are two ways you can show the Allure report:<br/>
+7. The test will run until all 5 specs have been completed. The specs will be reported in the terminal, however there is also a nicer-looking Allure report (though you may need Java 8+ for it to work properly). There are two ways you can show the Allure report:<br/>
    a. If using Visual Studio Code; to to 'Run and Debug', choose 'Show Results' from the dropdown then click the play button<br/>
    b. If you are not using Visual Studio Code; run the following command in your terminal: allure serve<br/>
 8. The test report should now be shown in a browser window.
