@@ -42,7 +42,11 @@ class HomePage extends common {
   }
 
   get secondBetSlipBetText() {
-    return $("._c1eb137");
+    return $("._8f75177");
+  }
+
+  get footballBetSlipText() {
+    return $("._8f75177");
   }
 
   get boostedOddsIcon() {

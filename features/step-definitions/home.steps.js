@@ -53,16 +53,6 @@ When(/^the user chooses a non-boosted bet$/, async () => {
   await pages.home.secondOddsResult.click();
 });
 
-Then(
-  /^the bet slip widget should be appropriately populated including the boosted odds$/,
-  async () => {
-    let boostedOddsText = await pages.home.secondBoostedOddsText.getText();
-    await pages.home.secondBetSlipBetText.waitForExist();
-    let betSlipBetText = await pages.home.secondBetSlipBetText.getText();
-    await expect(betSlipBetText).toEqual(boostedOddsText);
-  }
-);
-
 When(/^the user clicks on "([^"]+)"$/, async (button) => {
   button = button.toLowerCase();
   await pages.home.buttons[button].waitForExist();
@@ -128,3 +118,13 @@ Then(/^the bet slip widget should be appropriately populated$/, async () => {
   let betSlipBetText = await pages.home.secondBetSlipBetText.getText();
   await expect(betSlipBetText).toEqual(extractedText);
 });
+
+Then(
+  /^the bet slip widget should be appropriately populated including the boosted odds$/,
+  async () => {
+    let boostedOddsText = await pages.home.secondBoostedOddsText.getText();
+    await pages.home.secondBetSlipBetText.waitForExist();
+    let betSlipBetText = await pages.home.footballBetSlipText.getText();
+    await expect(betSlipBetText).toEqual(boostedOddsText);
+  }
+);
