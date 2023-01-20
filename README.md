@@ -90,9 +90,34 @@ _Write 10 or more Gherkin scenarios to cover behaviour on the home page._
 
 _Create a simple javascript framework using WebdriverIO and Cucumber to automate a selection of the scenarios you have created. You should include at least 5 scenarios._
 
-For this task, I have chosen to test all scenarios except #1 as logging in requires my personal information and ID. However, I have left in my method of testing the login feature by using secrets and getter methods to provide a secure way to use sensitive credentials in automated tests. More information on this method is included in the provided documentation.
-
-### Task 2 Instructions
+### Instructions
 
 1. Clone this repo to your machine.
 2. Open the project folder in your preferred IDE (Visual Studio Code is recommended as it uses vscode configurations as a test runner)
+3. Open a terminal and run 'npm install' on the root of the project directory
+4. You will need a .env file to run the invalid login test (I use .env files to store sensitive data securely). This will be supplied to you.
+5. Insert the .env file into the root of the project and **ensure the file is called ".env" and NOT "env"**
+6. There are two ways you can run the test:<br/>
+   a. If using Visual Studio Code; go to 'Run and Debug', choose 'Run Tests' from the dropdown then click the play button<br/>
+   b. If you are not using Visual Studio Code; run the following command in your terminal: npx wdio run ./wdio.conf.js<br/>
+7. The test will run until all 5 specs have been completed. The specs will be reported in the terminal, however there is also a nicer-looking Allure report. There are two ways you can show the Allure report:<br/>
+   a. If using Visual Studio Code; to to 'Run and Debug', choose 'Show Results' from the dropdown then click the play button<br/>
+   b. If you are not using Visual Studio Code; run the following command in your terminal: allure serve<br/>
+8. The test report should now be shown in a browser window.
+
+### Additional Information
+
+#### &emsp;What additional libraries have you used and why have you used them?
+
+- dotenv<br/>
+  This makes it so you can use a .env file to store secrets. I have done so but for incorrect credentials.
+
+- rimraf<br/>
+  Handles the deletion of the allure-results folder which bloats extremely easy.
+
+- allure-reporter / allure-commandline<br/>
+  Provides a nicer-looking report over the spec reporter along with analytics.
+
+#### &emsp;Why use .env to store credentials?
+
+.envs are an easy way to store sensitive information. When running tests in a CI like Jenkins, you can host the file somewhere (like S3) and use it for your tests. It's not the MOST secure way, but it is a much better practice than hard-coding credentials.
